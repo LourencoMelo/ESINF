@@ -1,0 +1,155 @@
+1)
+public <Map<Integer, ArrayList<Pais>> numBorders(List<Pair<Pais, Pais>> lf){
+	Map<Pais, Integer> mapAux = new LinkedHashMap<>();
+
+	Map<Integer, ArrayList<Pais>> finalMap = new TreeMap<>();
+	
+	for(Pair<Pais, Pais>> pair : lf){
+		int counterFirst = mapAux.get(pair.getFirst());
+		if(counterFirst == null){
+			counterFirst = 0;
+		}
+		mapAux.put(pair.getFirst(), counterFirst + 1);
+		
+		int counterSecond = mapAux.get(pair.getSecond());
+		if(counterSecond == null){
+			counterSecond = 0;
+		}
+		mapAux.put(pair.getSecond, counterSecond + 1);
+	}
+	
+	for(Pais pais: mapAux.keySet())
+		int numberFront = mapAux.get(pais);
+		
+		if(finalMap.containsKey(numberFront)){
+			finalMap.get(numberFront).add(pais);
+		}else{
+			finalMap.put(numberFront, new ArrayList<Pais>);
+			finalMap.get(numberFront).add(pais);
+		}
+	}
+
+	return finalMap;
+
+}
+
+2)
+Complexidade: log2(n)*n
+
+3)
+public class MyTree extend BST<Integer> {
+	public boolean isSymmetric(){
+		return isSymmetric(root,root);
+	}
+	
+	private boolean isSymmetric(Node<E> node1, Node<E> node2){
+		
+		if(node1.getElement().compareTo(0 - node2.getElement()) != 0){
+			return false;
+		}
+		
+		if(node1.getLeft() != null || node2.getRight() != null){
+			return isSymmetric(node1.getLeft, node2.getRight);
+		}
+		
+		if(node1.getRight() != null || node1.getLeft() != null){
+			return isSymmetric(node1.getRight, node2.getLeft);
+		}
+	
+		return true;
+	}
+
+}
+
+4)
+
+public class Ferrovia{
+
+	private Graph<String, Double> g = new Graph<>(true);
+	
+	public LinkedList<String> alternativePath(stOrig, String stDest, String stManut){
+		if(stOrig == "" || stDest == "" || stManut == ""){
+			return null;
+		}
+		
+		Graph<String, Double> gAux = g.clone();
+		
+		gAux.removeVertex(stManut);
+		
+		LinkedList<String> path = new LinkedList<>();
+        Algoritms.shortestPath(gAux, stOrig, stDest, Double::compare, Double::sum, 0.0, path);
+        return path;
+	}	
+}
+	
+5)
+
+public List<Entry<K,V>> getCommonPathElements(int idx1, int idx2){
+	int indexPath1;
+	int indexPath2;
+	
+	List<Entry<K,V> listParents1 = new ArrayList<>();
+	List<Entry<K,V> listParents2 = new ArrayList<>();
+	
+	do{
+		if(idx1>0){
+			listParents1.add(heap.parent(indx1));
+			idx1 = (idx1-1)%2;
+		}	
+		if(indx2>0){
+			listParents2.add(heap.parent(indx2));
+			idx2 = (idx2-1)%2;
+		}	
+	while(idx1> 0 || indx2 > 0){
+		
+	List<Entry<K,V> lastList = new ArrayList<>();	
+	
+	for(Entry<K,V> entry1 : listParents1){
+		if(listParents2.contains(entry1){
+			lastList.add(entry1);
+		}
+	}	
+	
+	return lastList;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	

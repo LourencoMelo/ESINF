@@ -1,0 +1,45 @@
+Ex1)
+
+a)
+pos 2 ->17, pos 3 ->18 
+b) Deterministico n^2
+c)
+
+public boolean mystery2 (int[] A, int value)
+{
+
+boolean enc = false;
+
+ if(A[0] + A[1] > value ||A[A.length-1] + A[A.length-2] < value){
+	return false;
+ }
+ 
+ int i = 0 ; j = A.length-1;
+ while(i<j){
+	if(A[i]+ A[j] == value){
+		enc = true
+		i++;
+		j--;
+	}else if(A[i]+A[j] <value){
+		i++;
+	}else{
+		j--;
+	}
+	return enc;
+}
+
+Nao Deterministico: Melhor caso(1); Pior caso(n);
+
+Ex2)
+
+A) Recebe um map com cartoes referentes a uma pessoa
+ e devolve um map para cada pessoa todos os cartões dela
+ 
+B)Nao deterministico
+Melhor caso: n
+Pior caso: nlog(n)
+
+Ex3)
+Nao deterministico
+Melhor caso: 1
+Pior caso: log(n)

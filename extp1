@@ -1,0 +1,49 @@
+Ex1
+
+
+61427315   0 /  8
+51372416    0 / 4
+73152416     0 / 2
+17152416     0/ 1
+.....        0 / 0
+
+Ex2
+
+a)
+
+int sum2PositiveNumbers(int x, int y){
+	if(y==0){
+		return x;
+	}else{
+		return 1 + sum(x, y-1)
+	}
+}
+
+b)
+
+string dec2bin(Integer n){
+	if(n<2) return n.toString();
+	else{
+	Integer q = n / 2;
+	Integer r = n % 2;
+	return dec2bin(q) + r.toString();
+	
+	
+c)
+
+boolean isPrime(int n){
+	return isPrime(n,2);
+	
+	private boolean isPrime(int n, int d){
+		if(d > math.sqrt(n)) return true;
+		if(n % d == 0) return false;
+		return isPrime(n, d+1);
+	}
+}	
+d)
+
+boolean palindromo(String s){
+
+	if(s.length()<2) return true;
+	if(s.charAt(0) != s.charAt(s.length()-1) return false;
+	return palindromo(s.substring(1, s.length()-1));

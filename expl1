@@ -1,0 +1,107 @@
+PL1
+
+Exercicio Maria:
+
+reverseStr(String s){
+	if(s=="")
+	return;
+	else
+	return reverseStr(s.subtring(1)) + s.charAt(0);
+	
+Exercicio 1b):
+
+private static int product2Numbers(int x, int y){
+	if(x<y){
+		return product(y,x);
+	}else if(y !=0){
+		return (x+ product(x, y-1);
+	}else{
+		return 0;
+	}
+}
+
+Exercicio 1c):
+
+private static int hcf(int n1, int n2){
+	if(n2!=0){
+		return hcf(n2, n1%n2);
+	}else{
+		return n1;
+	}
+}
+
+Exercicio 1d):
+
+// Recursive function to convert string to integer
+    static int stringToInt(String str)
+    {
+ 
+        // If the number represented as a string
+        // contains only a single digit
+        // then returns its value
+        if (str.length() == 1)
+            return (str.charAt(0) - '0');
+ 
+        // Recursive call for the sub-string
+        // starting at the second character
+        double y = stringToInt(str.substring(1));
+ 
+        // First digit of the number
+        double x = str.charAt(0) - '0';
+ 
+        // First digit multiplied by the
+        // appropriate power of 10 and then
+        // add the recursive result
+        // For example, xy = ((x * 10) + y)
+        x = x * Math.pow(10, str.length() - 1) + y;
+        return (int)(x);
+    }
+ 
+Exercicio 1e):
+ 
+// recursive function that
+// returns the reverse of digits
+static int rev(int n, int temp)
+{
+    // base case
+    if (n == 0)
+        return temp;
+ 
+    // stores the reverse
+    // of a number
+    temp = (temp * 10) + (n % 10);
+ 
+    return rev(n / 10, temp);
+	
+}
+ 
+// Driver Code
+public static void main (String[] args)
+{
+    int n = 121;
+    int temp = rev(n, 0);
+     
+    if (temp == n)
+        System.out.println("yes");
+    else
+        System.out.println("no" );
+}
+
+
+Exercicio 1f):
+
+public static int sumMultiplicationMatrix(int[][] matrix, n){
+	if(n < maxSizeMatrix -1){
+		int sum += matrix[n][n]; 
+		return (sum + sumMultiplicationMatrix(matrix, n+1));
+	}else{
+		int sum += matrix[n][n];
+		return sum;
+	}
+}
+ 
+ 
+
+ 
+ 
+ 

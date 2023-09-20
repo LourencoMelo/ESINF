@@ -1,0 +1,97 @@
+1)
+
+public static<E> void favouriteList(List<E> l, List<E> p){
+
+	Map<E, List<E>> mapAux = new TreeMap<>(Collections.reverseOrder());
+	int contador = 0;
+	for(E numero: l){
+		for(E reps : p){
+			if(numero == reps){
+				contador++;
+			}
+		}
+		if(!mapAux.containsKey(contador)){
+			List <E> listaNComReps = new ArrayList<>();
+			listaNComReps.add(numero);
+			mapAux.put(contador, listaNComReps);
+		}else{
+			List <E> listaNComReps = mapAux.get(contador);
+			listaNComReps.add(numero);
+			mapAux.replace(contador, listaNComReps);
+		}
+	}
+	
+	l.clear();
+	for(E key : mapAux.keySet(){
+		List<E> listaAdd = mapAux.get(key);
+		for(E numeros : listaAdd){
+			l.add(numeros);
+		}
+	}
+	
+}
+
+2)
+O(n*logn)
+
+3)
+int lengthInternalPath(){
+	public int lengthInternalPath() {
+        return lengthInternalPath(root);
+    }
+
+    private int lengthInternalPath(Node<E> node) {
+        if (node.getLeft() == null && node.getRight() == null)
+            return 0;
+
+        return height(root) - height(node) + lengthInternalPath(node.getLeft()) + lengthInternalPath(node.getRight());
+    }
+
+}
+
+4)
+public class Ponto {
+ public boolean isFarmacia() { … }
+}
+public class GrafoMedicamento {
+
+	private Graph<Ponto, Double> g = new Graph<>(true);
+ 
+	public Ponto farmaciaMaisProxima(Ponto pIni, List<Ponto> pointsVisited){
+		if(pIni == null || pointsVisited.isEmpty()){
+			return null;
+		}
+		
+		Map<Double, Ponto> map = new TreeMap<>();
+		for(Ponto pontoDestino : pointsVisited){
+			if(pontoDestino.isFarmacia()){
+				LinkedList<V> path = ArrayList<>();
+				Algorithms.shortestPath(g, pIni, pontoDestino, Double::compare, Double::sum, 0.0, path);
+				int contador = 0;
+				for(int i = 0; i < path.size(); i ++){
+					if(i + 1 == path.size()){
+						break;
+					}
+					contador += g.edge(path.get(i), path.get(i+1)).getWeight();
+				}
+				map.put(contador, pontoDestino);
+			}
+		}
+		
+		for(Map.Entry<Double, String> mapObject : map.entrySet){
+			Ponto pontoFarmaciaProximo = mapObject.getValue();
+			return pontoFarmaciaProximo;
+		}
+		
+	}
+}
+
+5)
+
+
+
+
+
+
+
+
